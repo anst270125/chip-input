@@ -1,0 +1,11 @@
+<input type="text" [placeholder]="question" [disabled]="disabled" [(ngModel)]="inputFieldText"
+    (keyup)="onInputChange($event)" (focus)="onInputFocusChanged(true)" (focusout)="onInputFocusChanged(false)">
+<div class="options-wrapper" *ngIf="validOptions.length > 0">
+    <!-- using mousedown instead of click because it fires before input focusout -->
+    <div class="option" *ngFor="let option of validOptions; index as i"
+        [ngClass]="{selected: i === selectedOptionIndex}" (mousedown)="onAddOption(option)"
+        (mouseenter)="onOptionHovered(i)">{{option}}</div>
+</div>
+<div class="chips-wrapper" *ngIf="selectedOptions && selectedOptions.length > 0" [ngClass]="{disabled: disabled}">
+    <div class="chip" *ngFor="let option of selectedOptions; index as i" (click)="onRemoveOption(i)">{{option}}</div>
+</div>

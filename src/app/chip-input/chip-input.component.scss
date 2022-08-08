@@ -1,0 +1,68 @@
+:host {
+    position: relative;
+    flex-direction: column;
+    display: flex;
+
+    input {
+        border: none;
+        outline: none;
+        padding: 0; // padding set by parent component
+        text-overflow: ellipsis;
+        font-size: inherit;
+    }
+
+    .options-wrapper {
+        position: absolute;
+        top: 2em;
+        z-index: 1;
+        border: 1px solid grey;
+        background-color: white;
+        font-size: 0.85em;
+
+        .option {
+            border-bottom: 1px solid grey;
+            padding: 5px 20px 5px 5px;
+
+            &:last-child {
+                border: none;
+            }
+
+            &.selected {
+                background-color: rgb(100, 150, 255);
+            }
+        }
+    }
+
+    .chips-wrapper {
+        flex-wrap: wrap;
+        display: flex;
+        font-size: 0.85em;
+
+        &.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .chip {
+            position: relative;
+            margin: 5px 5px 0 0;
+            padding: 3px 5px 3px 5px;
+            box-shadow: 0px 1px 1px 1px #00000030;
+            border-radius: 2px;
+            background-color: rgb(220, 220, 255);
+
+            &:hover:after {
+                content: "\2716";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                opacity: 0.75;
+                background-color: white;
+                cursor: pointer;
+                text-align: center;
+            }
+        }
+    }
+}
