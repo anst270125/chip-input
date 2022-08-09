@@ -3,7 +3,7 @@
 <div class="options-wrapper" *ngIf="validOptions.length > 0">
     <!-- using mousedown instead of click because it fires before input focusout -->
     <div class="option" *ngFor="let option of validOptions; index as i"
-        [ngClass]="{selected: i === selectedOptionIndex}" (mousedown)="onAddOption(option)"
+        [ngClass]="{selected: i === selectedOptionIndex}" (click)="onAddOption(option,$event)"
         (mouseenter)="onOptionHovered(i)">{{option}}</div>
 </div>
 <div class="chips-wrapper" *ngIf="selectedOptions && selectedOptions.length > 0" [ngClass]="{disabled: disabled}">

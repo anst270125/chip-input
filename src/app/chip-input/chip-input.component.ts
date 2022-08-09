@@ -59,7 +59,10 @@ export class ChipInputComponent implements ControlValueAccessor {
 
 
 
-  onAddOption(option: string) {
+  onAddOption(option: string, event?: Event) {
+    if (event) {
+      event.stopPropagation();
+    }
     this.selectedOptions.push(option);
     this.validOptions = [];
     this.inputFieldText = "";
